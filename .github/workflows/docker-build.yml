@@ -35,3 +35,25 @@ jobs:
       - name: Run Docker container
         run: |
           docker run -d -p 5000:5000 random-forest-api
+
+      # Step 6: Test the API using curl
+      - name: Test the Flask API
+        run: |
+          # Wait for the Flask app to be fully ready before making requests
+          sleep 10  # Adjust if necessary to allow the Flask app to start
+          
+          # Make a prediction API request using curl
+          response=$(curl -s -X POST http://localhost:5000/predict \
+            -H "Content-Type: application/json" \
+            -d '{"features": [5.1, 3.5, 1.4, 0.2]}')
+
+          # Check the response
+          echo "API Response: $response"
+          
+          # Assert the correct response (Optional)
+          if [[ "$response" != *"prediction"* ]]; then
+            echo "API test failed."
+            exit 1
+          else
+            echo "API test succeeded."
+          fi

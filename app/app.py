@@ -5,7 +5,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the trained model
-model = joblib.load("../models/random_forest_model.pkl")
+model = joblib.load("/home/ANT.AMAZON.COM/aahtirah/Documents/M3_Model_Experimentation/models/random_forest_model.pkl")
 
 @app.route("/")
 def home():
