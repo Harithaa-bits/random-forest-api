@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 import joblib
 import numpy as np
+import os
 
 app = Flask(__name__)
 
-# Load the trained model
-model = joblib.load("../models/random_forest_model.pkl")
+# Adjusted path for loading the model
+model_path = os.path.join(os.getcwd(), 'models', 'random_forest_model.pkl')
+model = joblib.load(model_path)
 
 @app.route("/")
 def home():
