@@ -34,9 +34,9 @@ jobs:
       # Step 5: Run Docker container
       - name: Run Docker container
         run: |
-          docker run -d -p 5000:5000 random-forest-api
+          docker run -d -p 5000:5000 --name random-forest-api random-forest-api
 
-      # Step 6: Test Flask API
+      # Step 6: Test Flask API inside the Docker container
       - name: Test API Endpoint
         run: |
           sleep 5  # Give the container time to initialize
