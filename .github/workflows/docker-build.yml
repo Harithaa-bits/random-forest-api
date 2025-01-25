@@ -23,12 +23,13 @@ jobs:
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
-        
+          username: ${{ secrets.DOCKER_USERNAME }}  # Add this secret in your repository
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Step 4: Build Docker image
       - name: Build Docker image
         run: |
-          docker build -f Dockerfile -t random-forest-api .  # Explicitly reference Dockerfile
+          docker build -t random-forest-api .
 
       # Step 5: Run Docker container
       - name: Run Docker container
