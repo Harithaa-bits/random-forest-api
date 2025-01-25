@@ -3,7 +3,7 @@ name: Docker Build and Test
 on:
   push:
     branches:
-      - main  # Adjust to your branch name if necessary
+      - master  
   workflow_dispatch:  # Enables manual trigger
 
 jobs:
