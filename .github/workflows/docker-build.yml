@@ -24,7 +24,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}  # Add this secret in your repository
-          password: ${{ secrets.REMOVED_SECRET }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Step 4: Build Docker image
       - name: Build Docker image
